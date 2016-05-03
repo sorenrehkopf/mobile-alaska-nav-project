@@ -2,6 +2,7 @@ app.controller('NavCtrl',function($scope,NavOptions,$timeout){
 	$scope.navOptions = NavOptions.getNav();
 	$scope.section = 'Section';
 	$scope.location = 'Page Title';
+	$scope.user = {name:'Donovan Beck'}
 	$scope.menuToggle = function(){
 		if($scope.menuOpen){
 			$scope.menuOpen = false;

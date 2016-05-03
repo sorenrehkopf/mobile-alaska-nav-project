@@ -7,9 +7,20 @@
 	</div>
 </div>
 <p id="bread-crumbs">{{section}} > {{location}}</p>
-<nav id="side-nav">
-	<div></div>
-	<div>
-		
+<nav id="side-nav" ng-class="{'closed':!menuOpen}">
+	<h5>Hello {{user.name}}</h5>
+	<div ng-repeat="option in navOptions track by $index" ng-init="$mainIndex = $index" ng-class="{'selected':selected===$index}" ng-click="selected = $index">
+		<img src="option.img" alt="{{option.title}}" height="30" width="30">
+		<h4>{{option.title}}</h4>
+		<i class="fa fa-chevron-right" ng-show="option.subNav"></i>
+		<div class="sub-nav" ng-class="{'closed':selected!=$index}" ng-class="{selected===$mainIndex}">
+			<div>
+				<h4>{{option.title}}</h4>
+				<i class="fa fa-times fa-2x" ng-click="selected=null"></i>
+			</div>
+			<div ng-repeat="subOption in option.subNav track by $index" ng-init="$subIndex = $index">
+				<h5>{{subOption.title}}</h5>
+			</div>
+		</div>
 	</div>
 </nav>
