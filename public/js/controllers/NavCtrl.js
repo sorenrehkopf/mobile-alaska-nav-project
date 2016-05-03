@@ -1,3 +1,3 @@
-app.controller('NavCtrl',function(){
-	
+app.controller('NavCtrl',function($scope,NavOptions){
+	$scope.navOptions = NavOptions.getNav();
 })
