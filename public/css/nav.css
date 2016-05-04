@@ -155,7 +155,7 @@
 	transition:80ms linear;
 }
 #nav-toggle.transition.close-icon>div:first-child,#nav-toggle.transition.close-icon>div:last-child{
-	transition:100ms ease-in linear;
+	transition:100ms ease-out;
 }
 #nav-toggle.transition>div:first-child{
 	top:4px;
