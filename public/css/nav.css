@@ -4,7 +4,6 @@
 	top:0px;
 	left:0px;
 	width:100vw;
-	background-color: rgb(20,73,147);
 }
 #top-banner>img{
 	height:6.5vh;
@@ -26,7 +25,6 @@
 	padding:10px 15px;
 	color:white;
 	margin:0px;
-	background-color: rgb(30,93,177);
 	font-size:10px;
 }
 
@@ -36,7 +34,7 @@
 	position:fixed;
 	top:6.5vh;
 	left:0vw;
-	z-index:10;
+	z-index:20;
 	width:100vw;
 	height:93.5vh;
 	color:white;
@@ -49,8 +47,6 @@
 }
 #side-nav.closed>div>*{
 	opacity:0;
-	transition:200ms linear;
-	transition-delay:200ms;
 }
 #side-nav>div>*{
 	opacity:1;
@@ -58,15 +54,13 @@
 	transition-delay:200ms;
 }
 #side-nav>h5{
-	background-color:rgb(50,113,207);
 	padding:15px 0px 0px 15px;
 	height:11vh;
 	margin:0px;
 }
-#side-nav>div,.sub-nav>div{
-	background-color: rgb(40,103,197);
-	border-top:1px outset gray;
-	border-bottom:1px outset gray;
+#side-nav>div,sub-nav>div>div>h5{
+	border-top:1px outset white;
+	border-bottom:1px outset white;
 	height:9vh;
 	display:flex;
 	justify-content:flex-start;
@@ -74,8 +68,13 @@
 }
 #side-nav>div.selected{
 	background-color:white;
+	transition:50ms linear;
+	transition-delay:0s;
+}
+#side-nav>div.selected>i,#side-nav>div.selected>img,#side-nav>div.selected>h4{
 	color:rgb(40,103,197);
-	transition:100ms linear;
+	transition:50ms linear;
+	transition-delay:0s;
 }
 #side-nav>div>i{
 	margin-left:auto;
@@ -85,12 +84,13 @@
 	justify-content: space-around;
 	align-items:center;
 	font-size:20px;
-	background-color:rgb(30,83,137);
 }
-#side-nav>div>h4,.sub-nav>div>h4{
+#side-nav>div>h4,.sub-nav>div>h5,.sub-nav>div>h4{
 	margin:0px;
 	padding:20px;
 }
+
+/*SUB NAV*/
 .sub-nav{
 	position:fixed;
 	overflow:auto;
@@ -98,34 +98,64 @@
 	height:82.5vh;
 	top:19.5vh;
 	right:0vw;
-	background-color: rgb(40,103,197);
+	z-index:30;
 	border-left:1px solid white;
 	transition:150ms linear;
 	transition-delay:500ms;
+	color:white;
+}
+.sub-nav-block{
+	position:fixed;
+	height:82.5vh;
+	top:19.5vh;
+	left:0vw;
+	width:100vw;
+	z-index:20;
 }
 .sub-nav.closed{
 	right:-85vw;
+	transition:150ms linear;
 }
-
-.sub-nav{
-	color:white;
+.sub-nav>div,.sub-nav>div>div>h5{
+	height:auto;
+	border-top:1px outset white;
+	border-bottom:1px outset white;
+	display:block;
+	/*transition:100ms linear;*/
 }
 .sub-nav>div>i{
-	margin:0px 10px 0px auto;
+	float:right;
+	margin:15px 15px 0px auto;
 }
-
+.sub-nav>div>div{
+	display:block;
+	width:100%;
+	max-height:0;
+	overflow:hidden;
+	transition:200ms ease-in;
+}
+.sub-nav>div>div>h5{
+	padding:10px 50px;
+	
+	margin:0px;
+}
+.sub-nav>div>div.dropped{
+	max-height:50vh;
+	overflow:auto;
+	transition:200ms ease-in;
+}
 
 /*NAV TOGGLE ANIMATION CLASSES*/
 #nav-toggle>div:first-child{
 	top:-6px;
-	transition:80ms ease-in-out;
+	transition:80ms linear;
 }
 #nav-toggle>div:last-child{
 	bottom:-6px;
-	transition:80ms ease-in-out;
+	transition:80ms linear;
 }
 #nav-toggle.transition.close-icon>div:first-child,#nav-toggle.transition.close-icon>div:last-child{
-	transition:100ms ease-in-out;
+	transition:100ms ease-in linear;
 }
 #nav-toggle.transition>div:first-child{
 	top:4px;

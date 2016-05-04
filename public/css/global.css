@@ -2,3 +2,15 @@ body{
 	margin:0px;
 	font-family:arial;
 }
+.dark-blue{
+	background-color: rgb(20,73,147);
+}
+.blue{
+	background-color: rgb(30,83,197);
+}
+.light-blue{
+	background-color:rgb(40,113,217);;
+}
+.lighter-blue{
+	background-color:rgb(40,153,237);;
+}

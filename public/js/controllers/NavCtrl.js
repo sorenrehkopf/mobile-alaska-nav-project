@@ -13,7 +13,7 @@ app.controller('NavCtrl',function($scope,NavOptions,$timeout){
 			$scope.menuTrans = true;
 			$timeout(function(){
 				$scope.closeIcon = true;
-			},100)
+			},110)
 		}
 	}
 })

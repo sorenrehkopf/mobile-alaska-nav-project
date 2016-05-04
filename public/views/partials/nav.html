@@ -1,4 +1,4 @@
-<div id="top-banner">
+<div id="top-banner" class="dark-blue">
 	<img src="/assets/alaska_logo.png">
 	<div id="nav-toggle" ng-class="{'transition':menuTrans,'close-icon':closeIcon}" ng-click="menuToggle()">
 		<div></div>
@@ -6,21 +6,27 @@
 		<div></div>
 	</div>
 </div>
-<p id="bread-crumbs">{{section}} > {{location}}</p>
-<nav id="side-nav" ng-class="{'closed':!menuOpen}">
-	<h5>Hello {{user.name}}</h5>
-	<div ng-repeat="option in navOptions track by $index" ng-init="$mainIndex = $index" ng-class="{'selected':selected===$index}" ng-click="selected = $index">
+<p id="bread-crumbs" class="light-blue">{{section}} > {{location}}</p>
+<nav id="side-nav" class="blue" ng-class="{'closed':!menuOpen}">
+	<h5 class="light-blue">Hello {{user.name}}</h5>
+	<div ng-repeat="option in navOptions track by $index" ng-init="$mainIndex = $index" ng-class="{'selected':selected===$mainIndex}">
 		<img src="option.img" alt="{{option.title}}" height="30" width="30">
 		<h4>{{option.title}}</h4>
-		<i class="fa fa-chevron-right" ng-show="option.subNav"></i>
-		<div class="sub-nav" ng-class="{'closed':selected!=$index}" ng-class="{selected===$mainIndex}">
-			<div>
+		<i class="fa fa-chevron-right" class="dark-blue" ng-show="option.subNav" ng-click="selected = $mainIndex"></i>
+		<div class="sub-nav blue" ng-class="{'closed':selected!=$mainIndex}">
+			<div class="lighter-blue">
+				<i class="fa fa-times fa-2x" ng-click="selected = null"></i>
 				<h4>{{option.title}}</h4>
-				<i class="fa fa-times fa-2x" ng-click="selected=null"></i>
 			</div>
-			<div ng-repeat="subOption in option.subNav track by $index" ng-init="$subIndex = $index">
+			<div ng-repeat="subOption in option.subNav track by $index" ng-init="$subIndex = $index" ng-class="{'lighter-blue':subSelected===$subIndex}">
+				<i ng-show="subOption.subNav&&subSelected!=$subIndex" class="fa fa-chevron-down" ng-click="subSelected = $subIndex;"></i>
+				<i ng-show="subOption.subNav&&subSelected===$subIndex" class="fa fa-chevron-up" ng-click="subSelected = null"></i>
 				<h5>{{subOption.title}}</h5>
+				<div ng-show="subOption.subNav" class="lighter-blue" ng-class="{'dropped':subSelected === $subIndex}">
+					<h5 ng-repeat="dropOpt in subOption.subNav">{{dropOpt}}</h5>
+				</div>
 			</div>
 		</div>
+		<div class="sub-nav-block" ng-show="selected===$mainIndex" ng-click="selected = null"></div>
 	</div>
 </nav>
